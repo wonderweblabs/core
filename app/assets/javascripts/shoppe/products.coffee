@@ -21,5 +21,5 @@ $ ->
   # 
   # Automatically set up the form on page load if one exists.
   #
-  if $('form.productForm').length
+  if $('select#product_tax_rate_id').length
     setupProductForm $('form.productForm')
