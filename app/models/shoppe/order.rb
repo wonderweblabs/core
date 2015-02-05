@@ -23,7 +23,7 @@ module Shoppe
     validates :token, :presence => true
     with_options :if => Proc.new { |o| !o.building? } do |order|
       order.validates :email_address, :format => {:with => /\A\b[A-Z0-9\.\_\%\-\+]+@(?:[A-Z0-9\-]+\.)+[A-Z]{2,6}\b\z/i}
-      order.validates :phone_number, :format => {:with => /\A[0-9()\-\/+ ]+\z/}
+      order.validates :phone_number, :format => {:with => /\A[0-9()\-\/+ ]+\z/}, allow_blank: true
     end
 
     # Set some defaults
