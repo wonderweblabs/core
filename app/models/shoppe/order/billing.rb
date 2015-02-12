@@ -45,7 +45,7 @@ module Shoppe
     #
     # @return [BigDecimal]
     def items_sub_total
-      order_items.inject(BigDecimal(0)) { |t, i| t + i.sub_total }
+      order_items.inject(BigDecimal(0)) { |t, i| t + i.sub_total }.round(2)
     end
 
     # The total price of the order before tax
@@ -60,7 +60,7 @@ module Shoppe
     # @return [BigDecimal]
     def tax
       self.delivery_tax_amount +
-      order_items.inject(BigDecimal(0)) { |t, i| t + i.tax_amount }
+      order_items.inject(BigDecimal(0)) { |t, i| t + i.tax_amount }.round(2)
     end
 
     # The total of the order including tax
@@ -69,7 +69,7 @@ module Shoppe
     def total
       self.delivery_price +
       self.delivery_tax_amount +
-      order_items.inject(BigDecimal(0)) { |t, i| t + i.total }
+      order_items.inject(BigDecimal(0)) { |t, i| t + i.total }.round(2)
     end
 
     # The total amount due on the order
